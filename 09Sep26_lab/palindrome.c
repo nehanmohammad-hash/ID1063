@@ -5,9 +5,7 @@ int main() {
 
     // Read string input safely
     printf("Input: ");
-    scanf("%99s",str);
-
-   
+    scanf(" %99[^\n]", str);
 
     // Task 1: Find the length of the string
     int len = 0;
@@ -15,18 +13,20 @@ int main() {
         len++;
     }
 
-    for (int i = 0; i < len / 2; i++) {
-        if (str[i] == str[len - 1 - i]) {
-        printf("Output: Palindrome\n");
-	break;
+    int i;
+    for (i = 0; i < len / 2; i++) {
+        if (str[i] != str[len - 1 - i]) {
+            break;
         }
-	else {
-	printf("Output: Not a palindrom\n");
-	break;
-	}
     }
 
+    if (i == len / 2) {
+        printf("Output: Palindrome\n");
+    } else {
+        printf("Output: Not a Palindrome\n");
+    }
 
     return 0;
 }
+
 
