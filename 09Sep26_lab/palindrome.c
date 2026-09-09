@@ -1,3 +1,6 @@
+//Nehan Mohammad
+//09Sep26_lab, question 5
+
 #include <stdio.h>
 
 int main() {
