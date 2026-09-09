@@ -8,21 +8,19 @@
 void replace_char(char *str, char x, char y) {
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] == x) {
-            str[i] = y;
+            str[i] =y;
         }
     }
 }
 
 int main() {
-    int capacity = 100;
-
-    // 2. Dynamic Memory Allocation
-    char *str = (char *)malloc(capacity * sizeof(char));
+    // 1. Dynamic Memory Allocation
+    char *str = (char *)malloc(100 * 1);
     
     char x, y;
 
     printf("Input:\n");
-    scanf(" %99[^\n]", str); // 4. Passing pointer directly to scanf
+    scanf(" %99[^\n]", str); // 2. Passing pointer directly to scanf
     printf("Enter letter to be replaced: ");
     scanf(" %c", &x);
     printf("Enter the new letter: ");
@@ -30,12 +28,12 @@ int main() {
 
     replace_char(str, x, y);
 
-    printf("\nOutput:\n%s\n", str);
+    printf("\nOutput:\n%:ws\n", str);
 
-    // 5. Deallocating Memory
+    // 3. Deallocating Memory
     free(str);
     
-    // 6. Preventing Dangling Pointer
+    // 4. Preventing Dangling Pointer
     str = NULL;
 
     return 0;
