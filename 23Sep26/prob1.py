@@ -1,3 +1,7 @@
+# Written by Nehan Mohammad
+# 23 Sep 2026, ITP lab
+
+
 import numpy as np
 
 '''
