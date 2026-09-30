@@ -4,9 +4,9 @@
 int firstStable(double a[], int n, double tolerance) {
     // Loop from i = 1 to n - 2 (matching range(1, n-1) in Python)
     for (int i = 1; i < n - 1; i++) {
-        double diff1 = -a[i] + a[i-1];
-        double diff2 = -a[i+1] + a[i];
-        double diff3 = diff1 - diff2;
+        double diff1 = abs(-a[i] + a[i-1]);
+        double diff2 = abs(-a[i+1] + a[i]);
+        double diff3 = abs(diff1 - diff2);
         
         if (diff3 <= tolerance) {
             return i + 1; // Returns 1-based position
