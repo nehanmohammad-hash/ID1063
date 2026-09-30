@@ -1,37 +1,53 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main() {
     int n;
-    printf("Enter length of array: ");
+    printf("Enter length of array (max 100): ");
     scanf("%d", &n);
 
-    int coins[n];
-
-    printf("Enter values: ");
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &coins[i]);
+    // Ensure n is within bounds
+    if (n <= 0 || n > 100) {
+        printf("Error: n must be between 1 and 100.\n");
+        return 1;
     }
 
-    int *pmin = &coins[0];
+    int coins[100];
+    srand(time(NULL));
 
-    /* Scan the array.
-       Make pmin point to the chest with the fewest coins. */
-	for( int i=0; i<n; i++){
-		if(coins[i] < *pmin){
-			pmin = &coins[i];
-		}
-	}
+    // Automatically generate a random vector with values between 1 and 100
+    printf("Original random array: ");
+    for (int i = 0; i < n; i++) {
+        coins[i] = (rand() % 100) + 1; 
+        printf("%d", coins[i]);
+        if (i < n - 1) printf(" ");
+    }
+    printf("\n");
 
-    /* Remove all coins from the cursed chest. */
-	*pmin =0;
-	
-    printf("modified array: ");
+    // Find the minimum value in the array
+    int min_val = coins[0];
+    for (int i = 1; i < n; i++) {
+        if (coins[i] < min_val) {
+            min_val = coins[i];
+        }
+    }
+	/*
+    // Change ALL minimum values to 0
+    for (int i = 0; i < n; i++) {
+        if (coins[i] == min_val) {
+            coins[i] = 0;
+        }
+    }
+
+    // Print the new vector
+    printf("Modified array: ");
     for (int i = 0; i < n; i++) {
         printf("%d", coins[i]);
         if (i < n - 1) {
             printf(" ");
         }
-    }
+    }*/
     printf("\n");
 
     return 0;
